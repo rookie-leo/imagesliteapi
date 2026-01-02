@@ -1,4 +1,4 @@
-package io.github.rookie_leo.imageliteapi.adapters.out.entities
+package io.github.rookie_leo.imageliteapi.adapters.out.repositories.entities
 
 import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import jakarta.persistence.*
@@ -9,7 +9,7 @@ import java.time.LocalDateTime
 @Entity
 @Table(name = "tb_image")
 @EntityListeners(AuditingEntityListener::class)
-data class Image(
+data class ImageEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     val id: String,
@@ -39,7 +39,7 @@ data class Image(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as Image
+        other as ImageEntity
 
         if (size != other.size) return false
         if (id != other.id) return false
