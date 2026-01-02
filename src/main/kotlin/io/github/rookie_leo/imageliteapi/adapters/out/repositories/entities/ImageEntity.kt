@@ -12,7 +12,7 @@ import java.time.LocalDateTime
 data class ImageEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    val id: String,
+    val id: String? = null,
 
     @Column
     val name: String,
@@ -25,8 +25,7 @@ data class ImageEntity(
     val extension: ImageExtension,
 
     @Column
-    @CreatedDate
-    val uploadDate: LocalDateTime,
+    val uploadDate: LocalDateTime? = LocalDateTime.now(),
 
     @Column
     val tags: String,
