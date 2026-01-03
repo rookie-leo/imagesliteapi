@@ -11,6 +11,9 @@ class ImageUseCaseImpl(
 ): ImageUseCase {
     override fun save(image: ImageDomain): ImageDomain =
         database.save(image.toEntity()).toDomain()
+
+    override fun getById(id: String): ImageDomain? =
+        database.findById(id)?.toDomain()
 }
 
 

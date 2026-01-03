@@ -19,4 +19,11 @@ class ImageDatabaseImpl(
             throw DataBaseConectionException("Has a error connection with database", ex.cause)
         }
 
+    override fun findById(id: String): ImageEntity? =
+        try {
+            repository.findById(id).orElse(null)
+        } catch (ex: Exception) {
+            throw DataBaseConectionException("Has a error connection with database", ex.cause)
+        }
+
 }

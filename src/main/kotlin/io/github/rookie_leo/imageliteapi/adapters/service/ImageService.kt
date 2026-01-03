@@ -5,4 +5,5 @@ import io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos.ImageRes
 
 interface ImageService {
     fun save(image: ImageRequest): ImageResponse
+    fun getById(id: String): ImageResponse?
 }
