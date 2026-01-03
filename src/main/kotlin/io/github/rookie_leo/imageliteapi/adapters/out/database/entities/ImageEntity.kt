@@ -1,4 +1,4 @@
-package io.github.rookie_leo.imageliteapi.adapters.out.repositories.entities
+package io.github.rookie_leo.imageliteapi.adapters.out.database.entities
 
 import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import jakarta.persistence.*

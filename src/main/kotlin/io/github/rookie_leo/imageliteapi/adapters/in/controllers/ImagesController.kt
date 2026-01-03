@@ -1,10 +1,9 @@
 package io.github.rookie_leo.imageliteapi.adapters.`in`.controllers
 
-import io.github.rookie_leo.imageliteapi.adapters.out.repositories.entities.ImageEntity
+import io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos.ImageRequest
+import io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos.ImageResponse
 import io.github.rookie_leo.imageliteapi.adapters.service.ImageService
-import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import org.slf4j.LoggerFactory
-import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -25,16 +24,14 @@ class ImagesController(
         @RequestParam("file") file: MultipartFile,
         @RequestParam("name") name: String,
         @RequestParam("tags") tags: List<String>
-    ): ResponseEntity<ImageEntity> {
+    ): ResponseEntity<ImageResponse> {
         log.info("Loaded image: ${file} - \nsize: ${file.size}" +
                 "\nImage name: ${name}" +
                 "\nTags: ${tags}")
-        return ResponseEntity.ok().body(service.save(ImageEntity(
+        return ResponseEntity.ok().body(service.save(ImageRequest(
             name = name,
-            tags = tags.toString(),
-            size = file.size,
-            extension = ImageExtension.fromMediaType(MediaType.valueOf(file.contentType.toString())),
-            file = file.bytes
+            tags = tags,
+            file = file
         )))
     }
 
