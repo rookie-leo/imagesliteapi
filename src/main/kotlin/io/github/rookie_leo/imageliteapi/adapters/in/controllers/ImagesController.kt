@@ -25,14 +25,20 @@ class ImagesController(
         @RequestParam("name") name: String,
         @RequestParam("tags") tags: List<String>
     ): ResponseEntity<ImageResponse> {
-        log.info("Loaded image: ${file} - \nsize: ${file.size}" +
-                "\nImage name: ${name}" +
-                "\nTags: ${tags}")
-        return ResponseEntity.ok().body(service.save(ImageRequest(
-            name = name,
-            tags = tags,
-            file = file
-        )))
+        log.info(
+            "Loaded image: ${file} - \nsize: ${file.size}" +
+                    "\nImage name: ${name}" +
+                    "\nTags: ${tags}"
+        )
+        val image = service.save(
+            ImageRequest(
+                name = name,
+                tags = tags,
+                file = file
+            )
+        )
+
+        return ResponseEntity.created(image.imageUri!!).build()
     }
 
 }
