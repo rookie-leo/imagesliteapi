@@ -23,7 +23,7 @@ fun ImageDomain.toResponse(): ImageResponse =
         name,
         size,
         extension,
-        uploadDate!!,
+        uploadDate!!.toLocalDate(),
         tags,
         file
     )

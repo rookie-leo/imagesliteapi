@@ -30,8 +30,7 @@ data class ImageEntity(
     @Column
     val tags: String,
 
-    @Column
-    @Lob
+    @Column(name = "file", columnDefinition = "BYTEA")
     val file: ByteArray
 ) {
     override fun equals(other: Any?): Boolean {

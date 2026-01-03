@@ -3,6 +3,7 @@ package io.github.rookie_leo.imageliteapi.adapters.service.impl
 import io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos.ImageRequest
 import io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos.ImageResponse
 import io.github.rookie_leo.imageliteapi.adapters.service.ImageService
+import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import io.github.rookie_leo.imageliteapi.core.usecases.ImageUseCase
 import io.github.rookie_leo.imageliteapi.core.utils.toDomain
 import io.github.rookie_leo.imageliteapi.core.utils.toResponse
@@ -25,9 +26,17 @@ class ImageServiceImpl(
     override fun getById(id: String): ImageResponse? =
         useCase.getById(id)?.toResponse()
 
+    override fun search(
+        extension: ImageExtension?,
+        query: String?
+    ): List<ImageResponse> =
+        useCase.search(extension, query).map { image ->
+            image.toResponse().withImageUri(buildImageUri(image.id!!))
+        }
+
     private fun buildImageUri(imageId: String): URI =
         ServletUriComponentsBuilder
-            .fromCurrentRequest()
+            .fromCurrentRequestUri()
             .path("/{id}")
             .buildAndExpand(imageId)
             .toUri()

@@ -2,14 +2,14 @@ package io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos
 
 import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import java.net.URI
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 data class ImageResponse (
     val id: String,
     val name: String,
     val size: Long,
     val extension: ImageExtension,
-    val uploadDate: LocalDateTime,
+    val uploadDate: LocalDate,
     val tags: String,
     val file: ByteArray,
     var imageUri: URI? = null
