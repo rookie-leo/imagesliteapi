@@ -1,5 +1,6 @@
 package io.github.rookie_leo.imageliteapi.adapters.`in`.controllers.dtos
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import java.net.URI
 import java.time.LocalDate
@@ -11,6 +12,7 @@ data class ImageResponse (
     val extension: ImageExtension,
     val uploadDate: LocalDate,
     val tags: String,
+    @JsonIgnore
     val file: ByteArray,
     var imageUri: URI? = null
 )

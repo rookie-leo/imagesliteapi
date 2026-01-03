@@ -1,5 +1,6 @@
 package io.github.rookie_leo.imageliteapi.adapters.out.database.entities
 
+import com.fasterxml.jackson.annotation.JsonIgnore
 import io.github.rookie_leo.imageliteapi.core.domain.ImageExtension
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate
