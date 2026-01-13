@@ -1,8 +1,8 @@
-# 🖼️ ImageLite API
+# 🖼️ ImageRepo API
 
 ## 📌 Visão Geral
 
-O **ImageLite API** é um microserviço backend responsável pelo **gerenciamento e armazenamento de imagens**, desenvolvido com **Kotlin e Spring Boot**, seguindo os princípios da **Clean Architecture** e boas práticas de desenvolvimento de software.
+O **ImageRepo API** é um microserviço backend responsável pelo **gerenciamento e armazenamento de imagens**, desenvolvido com **Kotlin e Spring Boot**, seguindo os princípios do **SOLID e Clean Architecture** e boas práticas de desenvolvimento de software.
 
 Este repositório contém **exclusivamente o microserviço de imagens**.
 O microserviço de **cadastro e gerenciamento de usuários** é mantido em um repositório separado, reforçando o desacoplamento entre domínios e facilitando a evolução independente dos serviços.
@@ -48,8 +48,6 @@ O projeto segue os princípios da **Clean Architecture**, com clara separação 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
-
-Com base no projeto e no `pom.xml`:
 
 ### 🔹 Linguagem e Plataforma
 
