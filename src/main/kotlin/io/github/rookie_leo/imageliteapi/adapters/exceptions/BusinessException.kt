@@ -1,7 +1,7 @@
 package io.github.rookie_leo.imageliteapi.adapters.exceptions
 
-class DataBaseConectionException(
+class BusinessException(
     val cod: String,
-    override val message: String?,
+    override val message: String,
     val details: ErrorDetail? = null
 ) : RuntimeException(message)
